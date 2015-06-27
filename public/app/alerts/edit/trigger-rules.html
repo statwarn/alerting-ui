@@ -1,0 +1,15 @@
+<div
+  class="form-group rules"
+  ng-repeat="trigger in triggers">
+
+  <alert-trigger-rule
+    trigger="trigger"
+    targets="targets"
+    enabled="canRemove"
+    on-remove="remove(trigger)"
+    on-add="add()"
+  >
+
+  </alert-trigger-rule>
+
+</div>

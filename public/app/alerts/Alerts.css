@@ -1,0 +1,33 @@
+.table-alerts td{
+  border-bottom-width: 3px;
+}
+
+  .table-alerts .alert-row .alert-activated{
+    width: 100px;
+    text-align: center;
+    vertical-align: middle;
+  }
+
+  .table-alerts .alert-row .alert-name{
+    text-align: center;
+    vertical-align: middle;
+  }
+
+  .table-alerts .alert-row .alert-triggers{
+    padding: 0;
+  }
+
+  .table-alerts .alert-row .alert-actions{
+    padding: 0;
+  }
+
+  .table-alerts .alert-row .alert-options{
+    text-align: center;
+    vertical-align: middle;
+    width: 105px;
+
+  }
+
+  .table .table {
+    table-layout:fixed;
+  }

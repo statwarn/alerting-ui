@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="StatWarn">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Statwarn Alerting UI</title>
+    <link href="/components/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <link href="/components/bootstrap/dist/css/bootstrap-theme.css" rel="stylesheet" />
+    <link href="/components/angular/angular-csp.css" rel="stylesheet" />
+    <link href="/css/statwarn.css" rel="stylesheet" />
+    <link href="/app/alerts/Alerts.css" rel="stylesheet" />
+    <link href="/components/angularjs-toaster/toaster.css" rel="stylesheet" />
+  </head>
+  <body>
+
+    <toaster-container></toaster-container>
+
+
+    <div class="statwarn-container">
+        <div class="container">
+            <h1>Statwarn Alerting Dashboard</h1>
+            <div id="alerts-container" class="js-app-content-container">
+              <div class="alerts-options">
+                  <button type="button" class="btn btn-primary js-alert-new" ui-sref="alerts.create">Create new alert</button>
+              </div><!-- /alerts-options -->
+            </div>
+            <div ui-view="create"></div>
+            <div ui-view="list"></div>
+        </div><!-- /container -->
+    </div><!-- /.container -->
+
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="/components/lodash/lodash.js"></script>
+    <script src="/components/angular/angular.js"></script>
+    <script src="/components/restangular/dist/restangular.js"></script>
+    <script src="/components/angularjs-toaster/toaster.js"></script>
+    <script src="/components/angular-animate/angular-animate.js"></script>
+    <script src="/components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="/components/json5/json5.js"></script>
+
+    <!-- Statwarn -->
+    <script src="/app/app.js"></script>
+    <script src="/app/router.js"></script>
+    <script src="/app/alerts/Alerts.js"></script>
+    <script src="/app/alerts/AlertService.js"></script>
+    <script src="/app/alerts/AlertsCtrl.js"></script>
+
+    <script src="/app/alerts/edit/ActionService.js"></script>
+    <script src="/app/alerts/edit/TargetService.js"></script>
+
+    <script src="/app/alerts/edit/AlertEditCtrl.js"></script>
+    <script src="/app/alerts/edit/AlertTargetRule.js"></script>
+    <script src="/app/alerts/edit/AlertTargetRules.js"></script>
+    <script src="/app/alerts/edit/AlertActionRule.js"></script>
+    <script src="/app/alerts/edit/AlertActionRules.js"></script>
+  </body>
+</html>

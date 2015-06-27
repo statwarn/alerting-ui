@@ -1,0 +1,24 @@
+<div class="rule-line">
+  <select
+    ng-model="trigger.target"
+    ng-options="target as target.target for target in targets">
+  </select>
+
+  <select
+    ng-model="trigger.operator"
+    ng-options="op.operator_id for op in trigger.target.operators">
+  </select>
+
+  <input type="text" ng-model="trigger.value">
+
+  <button
+    class="btn btn-default"
+    ng-click="remove()"
+    ng-disabled="!enabled">
+    <i class="glyphicon glyphicon-minus"></i>
+  </button>
+
+  <button class="btn btn-default" ng-click="add()">
+    <i class="glyphicon glyphicon-plus"></i>
+  </button>
+</div><!-- /rule-line -->

@@ -1,0 +1,59 @@
+<div ng-controller="AlertsCtrl as alertCtrl">
+<table class="table table-striped table-bordered table-alerts" ng-cloak>
+    <thead>
+      <tr class="alert-row">
+        <th>activated</th>
+        <th>name</th>
+        <th>triggers</th>
+        <th>actions</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="alert-row" ng-repeat="alert in alertCtrl.alerts">
+        <td class="alert-activated">
+          <input type="checkbox" ng-model="alert.activated">
+        </td>
+        <td class="alert-name">{{ alert.name }}</td>
+        <td class="alert-triggers">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>target</th>
+                <th>operator</th>
+                <th>configuration</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="trigger in alert.triggers">
+                <td>{{ trigger.target_value }}</td>
+                <td>{{ trigger.operator_id }}</td>
+                <td><pre>{{ trigger.operator_configuration }}</pre></td>
+              </tr>
+            </tbody>
+          </table>
+        </td>
+        <td class="alert-actions">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>type</th>
+                <th>configuration</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="action in alert.actions">
+                <td>{{ action.action_id }}</td>
+                <td><pre>{{ action.action_configuration }}</pre></td>
+              </tr>
+            </tbody>
+          </table>
+        </td>
+        <td class="alert-options">
+          <button class="btn btn-primary" ng-click="alertCtrl.edit(alert)"><i class="glyphicon glyphicon-edit"></i></button>
+          <button class="btn btn-danger" ng-click="alertCtrl.delete(alert)"><i class="glyphicon glyphicon-remove"></i></button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

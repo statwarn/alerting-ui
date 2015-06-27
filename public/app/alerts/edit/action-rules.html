@@ -1,0 +1,15 @@
+<div
+        class="form-group actions"
+        ng-repeat="action in actions">
+
+    <alert-action-rule
+            action="action"
+            available-actions="availableActions"
+            enabled="canRemove"
+            on-remove="remove(action)"
+            on-add="add()"
+            >
+
+    </alert-action-rule>
+
+</div>

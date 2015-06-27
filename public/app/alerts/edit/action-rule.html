@@ -1,0 +1,20 @@
+<div class="rule-line">
+
+    <select
+      ng-model="action.type"
+      ng-options="action.action_id as action.action_id for action in availableActions">
+    </select>
+
+    <input type="text" ng-model="action.webhook">
+
+    <button
+            class="btn btn-default"
+            ng-click="remove()"
+            ng-disabled="!enabled">
+        <i class="glyphicon glyphicon-minus"></i>
+    </button>
+
+    <button class="btn btn-default" ng-click="add()">
+        <i class="glyphicon glyphicon-plus"></i>
+    </button>
+</div><!-- /rule-line -->

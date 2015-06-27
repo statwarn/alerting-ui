@@ -1,0 +1,28 @@
+{
+  "checkbuild": {
+    "enable": ["jshint", "jsinspect", "david", "nsp"],
+    // don't exit immediately if one of the tools reports an error
+    "continueOnError": true,
+    // don't exit(1) even if we had some failures
+    "allowFailures": false
+  },
+  "jshint": {
+    "args": ["**/*.js", "!*node_modules/**", "!*public/components/**"]
+  },
+  "jscs": {
+    "args": ["**/*.js", "!*node_modules/**", "!*public/components/**"]
+  },
+  "jsinspect": {
+    "args": ["**/*.js", "!*node_modules/**", "!*public/components/**", "!**/**.test.js"],
+    "diff": true,
+    "threshold": 40
+  },
+  "buddyjs": {
+    "args": ["**/*.js", "!*node_modules/**", "!*public/components/**"],
+    "ignore": [0, 1, 200]
+  },
+  "david": {
+    "stable": true
+  },
+  "nsp": {}
+}

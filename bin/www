@@ -1,0 +1,84 @@
+#!/usr/bin/env node
+
+/**
+ * Module dependencies.
+ */
+var logger = require('winston');
+var assert = require('better-assert');
+var env = require('common-env')(logger);
+var config = env.getOrElseAll({
+  statwarn: {
+    alerting: {
+      api: {
+        endpoint: 'http://localhost:3001/'
+      },
+      ui: {
+        port: 3000
+      }
+    }
+  }
+});
+
+var app = require('../app')(config);
+var http = require('http');
+
+/**
+ * Get port from environment and store in Express.
+ */
+app.set('port', config.statwarn.alerting.ui.port);
+
+/**
+ * Create HTTP server.
+ */
+
+var server = http.createServer(app);
+
+/**
+ * Listen on provided port, on all network interfaces.
+ */
+
+server.listen(config.statwarn.alerting.ui.port);
+server.on('error', onError);
+server.on('listening', onListening);
+
+/**
+ * Normalize a port into a number, string, or false.
+ */
+
+
+
+/**
+ * Event listener for HTTP server "error" event.
+ */
+
+function onError(error) {
+  if (error.syscall !== 'listen') {
+    throw error;
+  }
+
+  var bind = typeof port === 'string' ? 'Pipe ' + port : 'Port ' + port;
+
+  // handle specific listen errors with friendly messages
+  switch (error.code) {
+  case 'EACCES':
+    logger.error(bind + ' requires elevated privileges');
+    process.exit(1);
+    break;
+  case 'EADDRINUSE':
+    logger.error(bind + ' is already in use');
+    process.exit(1);
+    break;
+  default:
+    throw error;
+  }
+}
+
+/**
+ * Event listener for HTTP server "listening" event.
+ */
+
+function onListening() {
+  var addr = server.address();
+  var bind = typeof addr === 'string' ? 'pipe ' + addr : 'port ' + addr.port;
+  logger.info('Listening on %s', bind);
+}

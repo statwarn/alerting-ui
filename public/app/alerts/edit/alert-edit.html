@@ -1,0 +1,30 @@
+<div class="alert-new-container" ng-controller="AlertEditCtrl as alertEdit">
+  <div class="well">
+    <form>
+      <div class="form-group">
+        <label for="alertName">Name</label>
+        <input type="text" class="form-control" id="alertName" ng-model="alertEdit.alert.name" placeholder="Alert name">
+      </div>
+
+      <div class="form-group">
+        <label for="triggers">Triggers</label>
+        <alert-trigger-rules
+          triggers="alertEdit.alert.triggers"
+          targets="alertEdit.targets"
+          id="triggers">
+        </alert-trigger-rules>
+      </div>
+
+      <div class="form-group">
+        <label for="actions">Actions</label>
+        <alert-action-rules
+          actions="alertEdit.alert.actions"
+          available-actions="alertEdit.actions"
+          id="actions">
+        </alert-action-rules>
+      </div>
+
+      <button type="submit" class="btn btn-success" ng-click="alertEdit.save()">Create Alert</button>
+    </form>
+  </div>
+</div><!-- /alert-new-container -->
